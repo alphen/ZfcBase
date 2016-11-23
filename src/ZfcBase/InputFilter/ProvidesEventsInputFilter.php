@@ -47,7 +47,7 @@ class ProvidesEventsInputFilter extends InputFilter
                 }
                 // silently ignore invalid eventIdentifier types
             }
-            $this->setEventManager(new EventManager($identifiers));
+            $this->setEventManager(new EventManager(null, $identifiers));
         }
         return $this->events;
     }

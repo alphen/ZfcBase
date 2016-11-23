@@ -6,6 +6,7 @@ use Traversable;
 use Zend\Form\Form;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\EventManager;
+use Zend\EventManager\SharedEventManager;
 
 class ProvidesEventsForm extends Form
 {
@@ -48,7 +49,7 @@ class ProvidesEventsForm extends Form
                 }
                 // silently ignore invalid eventIdentifier types
             }
-            $this->setEventManager(new EventManager($identifiers));
+            $this->setEventManager(new EventManager(null ,$identifiers));
         }
         return $this->events;
     }

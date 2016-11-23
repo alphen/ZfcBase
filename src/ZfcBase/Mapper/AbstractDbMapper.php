@@ -80,8 +80,8 @@ abstract class AbstractDbMapper extends EventProvider
             throw new \Exception('No db adapter present');
         }
 
-        if (!$this->hydrator instanceof HydratorInterface) {
-            $this->hydrator = new ClassMethods;
+        if (!$this->hydrator instanceof \Zend\Hydrator\HydratorInterface) {
+            $this->hydrator = new \Zend\Hydrator\ClassMethods();
         }
 
         if (!is_object($this->entityPrototype)) {
@@ -257,7 +257,7 @@ abstract class AbstractDbMapper extends EventProvider
     public function getHydrator()
     {
         if (!$this->hydrator) {
-            $this->hydrator = new ClassMethods(false);
+            $this->hydrator = new \Zend\Hydrator\ClassMethods(false);
         }
         return $this->hydrator;
     }
